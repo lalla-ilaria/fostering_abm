@@ -164,7 +164,7 @@ families <- function(foster, #foster= 0-no foster, 1-foster every year, 2-foster
     if(foster != 0){ #run the foster section only if fostering is allowed
       for(l in 1:(N_lineages/2)){ #foster only in the first half of households
         #define households involved
-        hh_lineage <- households[which(households$lineage == l & households$n_members > 1),] #all households in the lineage with more than one person (i.e. grandmas are not involved, TEST this as well?)
+        hh_lineage <- households[which(households$lineage == l & households$n_members >= 1),] #all households in the lineage with more than one person (i.e. grandmas are not involved, TEST this as well?)
         if (sum(households$lineage == l) > 1 & #foster if there is more than one household in lineage
             ifelse(foster == 2, any(hh_lineage$total_energy < max_energy_poor, na.rm = TRUE) & any( hh_lineage$total_energy > min_energy_rich, na.rm = TRUE) , TRUE) #foster only if any household has negative energy when fostering=2
         ) {

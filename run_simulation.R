@@ -3,7 +3,7 @@
 #####
 source("simulation_families.R")
 #
-my_families_simple <- families(foster = 2, N_lineages = 40, N_years = 300, plot_name = "_simple", save_plot = TRUE)
+my_families_simple <- families(foster = 2, N_lineages = 10, N_years = 100, plot_name = "_simple", save_plot = FALSE)
 my_families_real <- families(foster = 2, N_lineages = 40, N_years = 300, life_history = "_real", plot_name = "_real", save_plot = TRUE)
 
 list2env(my_families_simple,globalenv())
